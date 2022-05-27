@@ -43,5 +43,37 @@ I aquesta base de dades, amb el WinSCP, la copiem i enganxem a la nostre maquina
 ![image](https://user-images.githubusercontent.com/101892290/170797038-a2476a52-07a9-48b2-b4e1-91dadde2f341.png)
 
 
+### CONFIGURACIÓ SLAVE
+
+Primer, posem un server-id diferent al de la nostre maquina master (per exemple = 2)
+
+![image](https://user-images.githubusercontent.com/101892290/170797194-faed7997-3a88-4bb1-bcea-3de35dc5a7ca.png)
+
+Importem el backup de la base de dades que ens em pasat amb el WinSCP:
+
+![image](https://user-images.githubusercontent.com/101892290/170797248-79be580e-83f1-4ecd-bb21-7aae290a365d.png)
+
+Afegim les seguents comandes a la nostre slave:
+
+![image](https://user-images.githubusercontent.com/101892290/170797424-8bf69898-42a2-4a9f-83ba-8469e9d9e40e.png)
+
+##### Nota: per trobar els valors de MASTER_LOG_FILE i de MASTER_LOG_POS, hem de editar el nostre backup (amb la comanda nano /tmp/backup-master.slq) i hem de buscar els valors de MASTER_LOG_FILE i POS (normalment al principi del arxiu) Un exemple:
+
+![image](https://user-images.githubusercontent.com/101892290/170797546-b2801711-dd8e-481a-9e62-4312720834b0.png)
+
+Ara, hem de fer un start slave per que aixi comenci a funcionar el nostre slave:
+
+![image](https://user-images.githubusercontent.com/101892290/170797584-f26a0e1d-ca69-42ae-bfa0-05dee3dec264.png)
+
+Amb la comanda SHOW SLAVE STATUS \G: Podem observar si tot funciona correctament:
+
+![image](https://user-images.githubusercontent.com/101892290/170797620-3c9c3652-2d61-45ec-9c9f-a3bd7d9a464a.png)
+
+Per asegurarse completament de que la nostre SLAVE esta funcionant, podem crear una DATABASE al nostre MASTER i veurem com instantaniament es creara a la nostre SLAVE:
+
+![image](https://user-images.githubusercontent.com/101892290/170797674-206fcb4e-2fe1-499a-81eb-c090c9905b23.png)
+
+
+
 
 
