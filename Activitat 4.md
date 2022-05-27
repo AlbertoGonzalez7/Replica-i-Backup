@@ -40,9 +40,6 @@ Fem un backup de la ultima base de dades amb la seguent comanda:
 
 I aquesta base de dades, amb el WinSCP, la copiem i enganxem a la nostre maquina SLAVE, al mateix lloc on hem creat aquest backup a la maquina master (/tmp/)
 
-![image](https://user-images.githubusercontent.com/101892290/170797038-a2476a52-07a9-48b2-b4e1-91dadde2f341.png)
-
-
 ### CONFIGURACIÓ SLAVE
 
 Primer, posem un server-id diferent al de la nostre maquina master (per exemple = 2)
